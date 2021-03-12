@@ -1,0 +1,36 @@
+\RequirePackage{tcolorbox}
+\RequirePackage{xcolor}
+%\definecolor{teal}{HTML}{99FFCC}
+\RequirePackage{framed}
+\newenvironment{quotationb}%
+{\begin{leftbar}\begin{quotation}}%
+{\end{quotation}\end{leftbar}}
+
+\tcbuselibrary{minted,listings,skins}
+
+\newtcblisting{mylisting}[1][]{
+  listing only,
+  listing engine=minted,
+  frame hidden,
+  sharp corners,
+  colback=srcbg,
+  minted style=tango,
+  minted language=#1,
+  minted options={linenos=true,numbersep=3mm,texcl=true},
+  left=5mm,enhanced,
+  overlay={\begin{tcbclipinterior}\fill[black!25] (frame.south west)
+            rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}}
+
+\newtcblisting{myresults}{
+  listing only,
+  listing engine=listings,
+  frame hidden,
+  sharp corners,
+  colback=srcbg,
+  left=5mm,enhanced,
+  overlay={
+    \begin{tcbclipinterior}\fill[black!25] (frame.south west)
+      rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}
+    \node[rotate=90, minimum width=1cm, font=\footnotesize\sffamily, anchor=south,yshift=-15pt] at (frame.west) {Out};}
+}
+\definecolor{srcbg}{rgb}{0.95,0.95,0.95}

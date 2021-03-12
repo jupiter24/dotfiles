@@ -1,0 +1,10 @@
+configuration {
+  show-icons:         true;
+  icon-theme:         "Faenza";
+  cycle:              true;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  display-drun:       "apps";
+  sort:               true;
+  columns: 2;
+}

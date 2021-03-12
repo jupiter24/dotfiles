@@ -1,0 +1,10 @@
+[user]
+	name = Erik Jenner
+	email = erik.jenner99@gmail.com
+	signkey = 64A51DCE9521672C
+[core]
+	editor = emacsclient -a=\\\"\\\" -c
+[credential]
+	helper = cache --timeout=86400
+[init]
+	defaultBranch = main

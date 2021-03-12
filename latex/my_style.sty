@@ -1,0 +1,85 @@
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{xfrac}
+
+\newcommand*{\map}[3]{#1 \xrightarrow{#2} #3}
+
+\newcommand*{\bracket}[1]{\langle #1 \rangle}
+\newcommand*{\setcomp}[2]{\left\{ #1 \,\middle|\, #2 \right\}}
+\newcommand*\mat[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\DeclareMathOperator*{\argmax}{arg\,max\:}
+\DeclareMathOperator*{\argmin}{arg\,min\:}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\degree}{deg}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SE}{SE}
+\DeclareMathOperator{\orth}{O}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator*{\E}{\mathbb{E}} % expected value
+% Black magic from https://tex.stackexchange.com/questions/308/different-command-definitions-with-and-without-optional-argument
+% usage: \expval[x \sim \mathcal{P}]{x^2}
+% or simply \expval{x^2} if the distribution is clear
+\makeatletter
+\def\expval{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{\E_{#1}\left[ #2 \right]}
+\def\@without#1{\E\left[ #1 \right]}
+\makeatother
+
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+
+\newcommand{\fourier}[1]{\mathcal{F}\left\{#1\right\}}
+\newcommand{\invfourier}[1]{\mathcal{F}^{-1}\left\{#1\right\}}
+\newcommand{\pair}[1]{\langle #1 \rangle}
+\newcommand{\ind}{{\perp\!\!\!\perp}}
+
+\newcommand{\eps}{\varepsilon}
+
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+% for partial derivatives
+
+\newcommand{\diff}{\mathop{}\!d}
+\newcommand{\into}{\hookrightarrow}
+
+\newcommand{\mean}[1]{\overline{#1}}
+
+\DeclarePairedDelimiterX{\doublebar}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kl}{D_{KL}\doublebar}
+\newcommand{\leftact}{\curvearrowright}
+\newcommand{\acts}{\curvearrowright}
+\newcommand{\rightact}{\curvearrowleft}

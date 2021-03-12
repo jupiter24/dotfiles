@@ -1,0 +1,7 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "pure_prompt"]
+	path = pure_prompt
+	url = https://github.com/sindresorhus/pure

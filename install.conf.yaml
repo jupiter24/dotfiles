@@ -1,0 +1,29 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ""
+    ~/.config:
+      glob: true
+      path: config/*
+    ~/.doom.d:
+    ~/texmf/tex/latex:
+      glob: true
+      path: latex/*
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.condarc:
+    ~/.gitconfig:
+    ~/.inputrc:
+    ~/.xinitrc:
+    ~/.Xresources:
+    ~/.zprofile:
+    ~/.zshenv:
+    ~/.zshrc:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

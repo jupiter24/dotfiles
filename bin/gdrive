@@ -1,0 +1,23 @@
+#!/bin/bash
+# Call with "gdrive push/pull [folder shorthand or path]
+# "gd push/pull all" to push/pull everything
+
+cd ~/apps/gdrive || exit
+
+if [ $2 = "inbox" ]
+then
+	drive $1 productivity/inbox.org
+elif [ $2 = "notes" ]
+then
+	drive $1 LectureNotes
+elif [ $2 = "uni" ]
+then
+	drive $1 Uni
+elif [ $2 = "all" ]
+then
+	drive $1
+else
+	drive $1 $2
+fi
+
+cd -

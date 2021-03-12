@@ -1,0 +1,20 @@
+[Default Applications]
+x-scheme-handler/webcal=chromium.desktop
+x-scheme-handler/sgnl=signal-desktop.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
+text/html=chromium.desktop
+text/plain=emc.desktop
+text/x-tex=emc.desktop
+image/vnd.djvu+multipage=org.pwmt.zathura.desktop
+x-scheme-handler/mailto=chromium.desktop
+application/postscript=org.pwmt.zathura.desktop
+inode/directory=nnn.desktop
+image/png=feh.desktop
+x-scheme-handler/org-protocol=org-protocol.desktop
+image/jpeg=feh.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-9CCVW0.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-9CCVW0.desktop;
