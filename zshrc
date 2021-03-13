@@ -6,8 +6,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt share_history
 
-# Use vi keybindings
-bindkey -v
 # enable fzf keybindings (ctrl-R for history search, ctrl-T for file search)
 source /usr/share/fzf/key-bindings.zsh
 
@@ -32,6 +30,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Ctrl-Space to accept suggestions (the arrow key is too far away)
 bindkey '^ ' autosuggest-accept
+
+# better vi keybindings
+source $HOME/.dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Wait only 10ms after pressing Escape to switch to normal mode
+# If I set the timeout smaller than this, the cursor/prompt doesn't update
+export ZVM_KEYTIMEOUT=0.01
 
 # colors
 alias ls='ls --color=auto'
