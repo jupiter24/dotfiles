@@ -26,6 +26,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Requires zsh-autosuggestions to be installed
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=14"
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 
 # Wait only 10ms after pressing Escape to switch to normal mode
 # If I set the timeout smaller than this, the cursor/prompt doesn't update
