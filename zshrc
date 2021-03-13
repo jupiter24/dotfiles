@@ -40,20 +40,23 @@ function zvm_after_lazy_keybindings() {
     bindkey '^ ' autosuggest-accept
 }
 
+# Patch zvm's yank and paste function to integrate with system clipboard
+functions[zvm_yank]="
+    $functions[zvm_yank]
+    echo \$CUTBUFFER | xclip -selection clipboard"
+functions[zvm_vi_put_after]="
+    CUTBUFFER=\$(xclip -o -selection clipboard)
+    $functions[zvm_vi_put_after]"
+functions[zvm_vi_put_before]="
+    CUTBUFFER=\$(xclip -o -selection clipboard)
+    $functions[zvm_vi_put_before]"
+
 # colors
 alias ls='ls --color=auto'
 # really fancy colored manpages using bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-alias lisa_down="rsync -rLKv --exclude=\".*\" lgpu0383@lisa.surfsara.nl:~/ ~/Documents/university/present/dl/lisa/"
-alias lisa_up="rsync -rLKv --exclude=\".*\" ~/Documents/university/present/dl/lisa/ lgpu0383@lisa.surfsara.nl:~/"
-alias lisa_connect="ssh lgpu0133@lisa.surfsara.nl"
-
 alias up='cd ..'
-
-# command to interact with the bare git repository containing all dotfiles
-# Usage: e.g. $ cfg commit -m 'Change some config files'
-alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
