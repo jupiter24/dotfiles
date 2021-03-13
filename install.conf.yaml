@@ -19,6 +19,7 @@
     ~/.condarc:
     ~/.gitconfig:
     ~/.inputrc:
+    ~/.tmux.conf:
     ~/.xinitrc:
     ~/.Xresources:
     ~/.zprofile:

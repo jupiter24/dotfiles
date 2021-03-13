@@ -13,6 +13,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec "termite -e tmux"
 # open nnn (file manager)
 bindsym $mod+m exec "termite -e nnn"
 
