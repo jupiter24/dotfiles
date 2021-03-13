@@ -6,9 +6,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt share_history
 
-# enable fzf keybindings (ctrl-R for history search, ctrl-T for file search)
-source /usr/share/fzf/key-bindings.zsh
-
 # Activate TAB autocompletion
 autoload -Uz compinit
 compinit
@@ -28,14 +25,20 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Enable autosuggestions as in fish
 # Requires zsh-autosuggestions to be installed
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# Ctrl-Space to accept suggestions (the arrow key is too far away)
-bindkey '^ ' autosuggest-accept
 
 # better vi keybindings
 source $HOME/.dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Wait only 10ms after pressing Escape to switch to normal mode
 # If I set the timeout smaller than this, the cursor/prompt doesn't update
 export ZVM_KEYTIMEOUT=0.01
+# enable fzf keybindings (ctrl-R for history search, ctrl-T for file search)
+# this needs to happen via zvm to avoid overwriting keybindings
+zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
+
+function zvm_after_lazy_keybindings() {
+    # Ctrl-Space to accept suggestions (the arrow key is too far away)
+    bindkey '^ ' autosuggest-accept
+}
 
 # colors
 alias ls='ls --color=auto'
