@@ -2,11 +2,16 @@
 set sandbox none
 set selection-clipboard clipboard
 
+
+set font "DejaVu Serif 13"
+
 set recolor
 # Keep images etc in color
 set recolor-keephue
 # Solarized color scheme
-set recolor-darkcolor "#586e75"
+# I've made the foreground color (recolor-darkcolor) a bit darker
+# because it looked weird otherwise
+set recolor-darkcolor "#4b5659"
 set recolor-lightcolor "#fdf6e3"
 set default-bg "#eee8d5"
 
