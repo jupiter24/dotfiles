@@ -330,11 +330,27 @@ It also checks the following:
 (setq +latex-viewers '(zathura))
 (setq reftex-default-bibliography "~/Documents/bibliography/references.bib")
 (setq LaTeX-csquotes-open-quote "\\enquote{"
-      LaTeX-csquotes-close-quote "}")
+      LaTeX-csquotes-close-quote "}"
+      ;; Math symbols are already handled by ligatures, we don't need to fold them.
+      ;; Otherwise, they sometimes change color when responsibility switches
+      ;; from ligatures to folding for some reason. More importantly, folding
+      ;; doesn't play nice with sub- and superscripts (the folded objects aren't
+      ;; lowered/raised).
+      LaTeX-fold-math-spec-list nil)
 
 (add-hook 'LaTeX-mode-hook
           (lambda () (set (make-local-variable 'TeX-electric-math)
                      (cons "\\(" ""))))
+;; Remove certain unwanted ligatures
+;; (for example, \par is annoying because it is a prefix of \partial, which makes
+;; typing it weird)
+;; tex-mode defines an underlying variable tex--prettify-symbols-alist, which
+;; is used to populate prettify-symbols-alist (the latter is buffer-local)
+;; NOTE Might be better to directly modify that once instead of using this hook?
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq prettify-symbols-alist (delq (assoc "\\par" prettify-symbols-alist) prettify-symbols-alist))))
+
 ;; Making \( \) less visible
 ;; https://tecosaur.github.io/emacs-config/config.html#editor-visuals
 (defface unimportant-latex-face
