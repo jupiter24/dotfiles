@@ -4,7 +4,9 @@ cursor_blink = off
 
 [colors]
 # Solarized light color scheme
-# https://raw.githubusercontent.com/alpha-omega/termite-colors-solarized/master/solarized-light
+# Based on https://raw.githubusercontent.com/alpha-omega/termite-colors-solarized/master/solarized-light
+# Modified to be more colorful; the normal Solarized theme looks very monotone
+# in the terminal if applications use colors 8 to 15 a lot
 
 foreground = #657b83
 foreground_bold = #073642
@@ -17,20 +19,20 @@ cursor = #586e75
 
 # colors from color0 to color254 can be set
 color0 = #073642
-color1 = #dc322f
-color2 = #859900
+color1 = #cb4b16
+color2 = #a6bf00
 color3 = #b58900
 color4 = #268bd2
-color5 = #d33682
-color6 = #2aa198
+color5 = #6c71c4
+color6 = #14ccbd
 color7 = #eee8d5
 color8 = #002b36
-color9 = #cb4b16
-color10 = #586e75
-color11 = #657b83
-color12 = #839496
-color13 = #6c71c4
-color14 = #93a1a1
+color9 = #dc322f
+color10 = #859900
+color11 = #d9a300
+color12 = #0086e6
+color13 = #d33682
+color14 = #2aa198
 color15 = #fdf6e3
 
 bold_is_bright = false
