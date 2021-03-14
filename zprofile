@@ -1,4 +1,4 @@
-export PATH=~/bin:~/.emacs.d/bin:$PATH
+export PATH=~/.dotfiles/bin:~/.emacs.d/bin:$PATH
 eval $(keychain --noask --eval --quiet id_ed25519)
 
 # Automatically start X on VT 1

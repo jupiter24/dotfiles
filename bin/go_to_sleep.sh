@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+
 # the program is called telegram-desktop but that's longer than 16 characters
 # which means the name is treated as "telegram-deskto"
 pkill telegram-deskto
@@ -24,7 +26,7 @@ else
     text="It's after your planned bedtime."
 fi
 curl -X POST https://www.beeminder.com/api/v1/users/ejenner/goals/bedtime/datapoints.json \
-    -d auth_token=ZmMLBHEYcAjowf1nUhQz \
+    -d auth_token="$(pass beeminder/token)" \
     -d value=$val \
     -d comment=via+shutdown+script
 zenity --info --text "$text Now open the necessary files for your first intention tomorrow."
