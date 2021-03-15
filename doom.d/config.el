@@ -220,16 +220,19 @@ It also checks the following:
         (setq org-roam--current-buffer buf)
         (org-roam-buffer-update)))))
 
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (dired-hide-details-mode 1)
-            ;; I don't use dired-subtree at the moment
-            ;;(define-key dired-mode-map (kbd "<tab>") #'dired-subtree-toggle)
-            ;;(define-key dired-mode-map (kbd "<C-tab>") #'dired-subtree-cycle)
-            (map! :map dired-mode-map
-                  :n "j" #'my/dired-display-next-file)
-            (map! :map dired-mode-map
-                  :n "k" #'my/dired-display-prev-file)))
+(defun my/browse-journal ()
+  "Browse journal entries using a dired sidepane."
+  (interactive)
+  (split-window-right)
+  (dired (expand-file-name "daily" org-roam-directory))
+
+  (dired-hide-details-mode 1)
+  (map! :map dired-mode-map
+        :n "j" #'my/dired-display-next-file)
+  (map! :map dired-mode-map
+        :n "k" #'my/dired-display-prev-file)
+  (let ((fit-window-to-buffer-horizontally 'only))
+    (fit-window-to-buffer)))
 
 (after! org-fancy-priorities
   (setq org-fancy-priorities-list '("[A]" "[B]" "[C]" "[D]" "[E]")))
@@ -317,7 +320,8 @@ It also checks the following:
       :desc "Daily checklist" "on" #'daily-checklist-next
       :desc "Abort checklist" "oq" #'daily-checklist-abort
       :desc "Calc" "oc" #'calc
-      :desc "Daily note today" "nrt" #'org-roam-dailies-find-today)
+      :desc "Daily note today" "nrt" #'org-roam-dailies-find-today
+      :desc "Browse journal" "nrj" #'my/browse-journal)
 
 (use-package! ledger-mode
   :mode "\\.journal\\'"
