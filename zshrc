@@ -28,9 +28,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=14"
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 
-# Wait only 10ms after pressing Escape to switch to normal mode
-# If I set the timeout smaller than this, the cursor/prompt doesn't update
-export ZVM_KEYTIMEOUT=0.01
 # better vi keybindings
 source $HOME/.dotfiles/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # enable fzf keybindings (ctrl-R for history search, ctrl-T for file search)
