@@ -326,7 +326,7 @@ It also checks the following:
 (use-package! ledger-mode
   :mode "\\.journal\\'"
   :custom
-  (ledger-default-date-format ledger-iso-date-format)
+  (ledger-default-date-format "%Y-%m-%d")
   :config
   (setq ledger-binary-path "hledger"))
 
