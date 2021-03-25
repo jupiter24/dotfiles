@@ -79,6 +79,7 @@ Call repeatedly to toggle between two buffers."
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.7)
         ;; highlighting latex is nice but slows org down enormously on large files
         org-highlight-latex-and-related nil
+        org-ellipsis "⤵"
         ;; if an org heading as a CUSTOM_ID, use that to generate latex labels
         ;; necessary for org-ref links to headings using IDs to work correctly after export
         org-latex-prefer-user-labels t
