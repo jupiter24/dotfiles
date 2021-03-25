@@ -28,7 +28,8 @@ fi
 curl -X POST https://www.beeminder.com/api/v1/users/ejenner/goals/bedtime/datapoints.json \
     -d auth_token="$(pass beeminder/token)" \
     -d value=$val \
-    -d comment=via+shutdown+script
+    -d comment=via+shutdown+script \
+    &>> ~/.productivity/beeminder.log
 zenity --info --text "$text Now open the necessary files for your first intention tomorrow."
 welcome_screen.sh &
 systemctl suspend
