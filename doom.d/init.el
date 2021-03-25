@@ -142,6 +142,7 @@
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex              ; writing papers in Emacs has never been so fun
+        +lsp
         +latexmk
         +fold)
        ;;lean
