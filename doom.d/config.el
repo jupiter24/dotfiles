@@ -353,7 +353,13 @@ It also checks the following:
 ;; NOTE Might be better to directly modify that once instead of using this hook?
 (add-hook 'LaTeX-mode-hook
           (lambda ()
-            (setq prettify-symbols-alist (delq (assoc "\\par" prettify-symbols-alist) prettify-symbols-alist))))
+            (setq-local prettify-symbols-alist (delq (assoc "\\par" prettify-symbols-alist) prettify-symbols-alist))
+            (setq-local prettify-symbols-alist
+                        (append '(
+                                  ("\\R" . "ℝ")
+                                  ("\\sqrt" .  "√")
+                                  ("\\," . "␣")
+                                 ) prettify-symbols-alist))))
 
 ;; Making \( \) less visible
 ;; https://tecosaur.github.io/emacs-config/config.html#editor-visuals
