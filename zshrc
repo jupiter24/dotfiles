@@ -57,6 +57,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 alias up='cd ..'
 
+source /etc/profile.d/autojump.zsh
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/erik/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
