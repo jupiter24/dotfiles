@@ -438,3 +438,7 @@ It also checks the following:
 
 (setq evil-snipe-scope 'visible
       evil-snipe-repeat-scope 'whole-visible)
+
+(add-hook! 'python-mode
+  (unless (locate-dominating-file default-directory ".noformat")
+    (format-all-mode)))
