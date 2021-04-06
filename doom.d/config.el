@@ -228,9 +228,9 @@ It also checks the following:
   (dired (expand-file-name "daily" org-roam-directory))
 
   (dired-hide-details-mode 1)
-  (map! :map dired-mode-map
+  (map! :map 'local
         :n "j" #'my/dired-display-next-file)
-  (map! :map dired-mode-map
+  (map! :map 'local
         :n "k" #'my/dired-display-prev-file)
   (let ((fit-window-to-buffer-horizontally 'only))
     (fit-window-to-buffer)))
