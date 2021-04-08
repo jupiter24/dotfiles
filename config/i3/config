@@ -237,7 +237,6 @@ exec termite --class=termite_scratch
 # background services:
 exec --no-startup-id picom --experimental-backends --config ~/.config/compton.conf -b
 exec --no-startup-id /usr/bin/dunst
-exec --no-startup-id emacs --daemon
 exec --no-startup-id redshift
 exec_always --no-startup-id polybar.sh
 
