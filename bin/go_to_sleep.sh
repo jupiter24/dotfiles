@@ -15,12 +15,6 @@ mpc pause
 if [[ $(date +%s) -le $(date -d "$(cat ~/.productivity/bedtime_today.txt) today" +%s) ]]; then
     val=1
     text="You're going to bed on time, nice job!"
-elif [[ $(date +%s) -le $(date -d "$(cat ~/.productivity/bedtime_today.txt) today +30min" +%s) ]]; then
-    val=0.5
-    text="You're inside the 30min window."
-elif [[ $(date +%s) -le $(date -d "$(cat ~/.productivity/bedtime_today.txt) today +1hour" +%s) ]]; then
-    val=0.25
-    text="You're inside the 60min window."
 else
     val=0
     text="It's after your planned bedtime."
