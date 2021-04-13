@@ -14,16 +14,18 @@ mpc pause
 # date is kind of magic and can interpret strings like "22:35 today +1hour"
 if [[ $(date +%s) -le $(date -d "$(cat ~/.productivity/bedtime_today.txt) today" +%s) ]]; then
     val=1
-    text="You're going to bed on time, nice job!"
+    text="Nice, you're on time!"
+    color="green"
 else
     val=0
     text="It's after your planned bedtime."
+    color="red"
 fi
 curl -X POST https://www.beeminder.com/api/v1/users/ejenner/goals/bedtime/datapoints.json \
     -d auth_token="$(pass beeminder/token)" \
     -d value=$val \
     -d comment=via+shutdown+script \
     &>> ~/.productivity/beeminder.log
-zenity --info --text "$text Now open the necessary files for your first intention tomorrow."
+dialog.sh "$text" "Now open the necessary files for your first intention tomorrow." "$color"
 welcome_screen.sh &
 systemctl suspend
