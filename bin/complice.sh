@@ -31,3 +31,4 @@ if isDue "bugs"; then setIntention "1) Bug fixing: "; fi
 if isDue "powerhour"; then setIntention "&) Power hour"; fi
 if isDue "weekly_checklist"; then setIntention "&) Weekly checklist"; fi
 if isDue "exercising"; then setIntention "3) Sport"; fi
+if isDue "putzen"; then setIntention "&) Putzen + Aufräumen"; fi

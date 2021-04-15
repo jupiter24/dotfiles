@@ -6,7 +6,7 @@ convert ~/Pictures/wallpapers/morning_flowers.jpg \
 	-gravity North \
 	-pointsize 100 \
 	-fill "#ccc" \
-	-annotate +0+100 "Guten Morgen, Erik!" \
+	-annotate +0+100 "Good morning, Erik!" \
 	-interline-spacing 30 \
 	-pointsize 40 \
 	-fill "#aaa" \
@@ -15,7 +15,7 @@ convert ~/Pictures/wallpapers/morning_flowers.jpg \
 	-fill white \
 	-gravity Northwest \
 	-pointsize 40 \
-	-annotate +340+460 "Your top priority is:" \
+	-annotate +340+460 "Your top priority for today is:" \
 	-gravity North \
 	-pointsize 70 \
 	-annotate +0+550 "$(cat ~/.productivity/daily_message.txt )" \

@@ -261,7 +261,7 @@ It also checks the following:
   "Pick the first TODO for tomorrow."
   (interactive)
   (with-temp-file "~/.productivity/daily_message.txt"
-    (insert (read-from-minibuffer "First TODO for tomorrow: ")))
+    (insert (read-from-minibuffer "Top priority for tomorrow: ")))
   (daily-checklist-next))
 (defun choose-bedtime ()
   "Choose the target bedtime for tomorrow."
@@ -286,11 +286,14 @@ It also checks the following:
       (shell-command "complice.sh")
       (daily-checklist-next))
     show-agenda-tomorrow
+    "For at least one intention: make it a dash by setting a short time on it."
+    "If you have a call tomorrow evening, set a reminder for the checklist before then."
     write-daily-message
     choose-bedtime
     "Mental check: are there any open things you need to deal with?"
     (lambda ()
-      (message "You're done! Say your shutdown phrase and enjoy the evening :)")
+      (shell-command "killall slack")
+      (message "You're done! Hide the E-Mail checker, say your shutdown phrase and enjoy the evening :)")
       (setq daily-checklist-current-step nil)))
   "The list of functions to be called one after another during the daily checklist.")
 
